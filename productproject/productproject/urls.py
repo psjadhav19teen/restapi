@@ -17,7 +17,7 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
-from app.views import AllProductview,AddProduct,UpdateProduct
+from app.views import AllProductview,AddProduct,UpdateProduct,DeleteProduct
 from app import views
 
 urlpatterns = [
@@ -25,6 +25,8 @@ urlpatterns = [
     path('',views.Apioverview,name="Apioverview"),
     path('AllProductview/',AllProductview.as_view(),name='AllProductview'),
     path('AddProduct/',AddProduct.as_view(),name='AddProduct'),
-    path('UpdateProduct/update/<int:pk>/',UpdateProduct.as_view(),name='UpdateProduct')
+    path('UpdateProduct/update/<int:pk>/',UpdateProduct.as_view(),name='UpdateProduct'),
+    path('DeleteProduct/delete/<int:pk>/',DeleteProduct.as_view(),name='DeleteProduct'),
+    path('searchbycategory/',views.searchbycategory,name='searchbycategory')
 
 ]
